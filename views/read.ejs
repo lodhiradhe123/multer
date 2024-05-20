@@ -1,0 +1,33 @@
+<%- include("./partials/header")%>
+
+<%- include("./partials/nav")%>
+
+<div class="w-full  bg-pink-100 p-1 flex gap-10  flex-wrap">
+
+
+    <% user.forEach((data)=>{%>
+
+        <div class="card bg-blue-300 mt-10 rounded-lg text-start p-5 text-xl  ">
+            <img src="/images/<%=data.img%>" alt="" class="rounded-lg  w-52">
+            <h1> <%=data.name%> </h1>
+            <hr>
+            <h1><%=data.email%></h1>
+            <hr>
+            <h1><%=data.contact%></h1>
+            <a href="/update/<%=data._id%>">
+                update
+            </a>
+            <br>
+            <a href="/delete/<%=data._id%>">delete</a>
+        </div>
+
+
+    <%})%>
+
+
+
+</div>
+
+
+
+<%- include("./partials/footer")%>

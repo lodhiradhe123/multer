@@ -1,0 +1,22 @@
+<%- include("./partials/header")%>
+
+<%- include("./partials/nav")%>
+
+
+<div class="home w-1/2 bg-zinc-300 mt-10 ml-[25%] text-center text-xl capitalize text-blue-500 rounded-lg">
+  <h1>create user</h1>
+<div class="me mt-[1%]">
+    <form action="/updatedata/<%=userdata._id%>" method="post">
+      <img src="/images/<%=userdata.img%>" alt="" class="w-52 text-center ml-[30%] rounded-lg">
+        <input value="<%=userdata.name%>" type="text" name="name" id="" class="w-1/2 rounded-lg mt-[1%] border-2 border-black p-1" placeholder="enter name">
+        <input value="<%=userdata.email%>" type="email" name="email" id="" class="w-1/2 rounded-lg mt-[1%] border-2 border-black p-1"  placeholder="enter email">
+        <input value="<%=userdata.contact%>" type="number" name="contact" id="" class="w-1/2 rounded-lg mt-[1%] border-2 border-black p-1" placeholder="enter number">
+        <br>
+        <input type="submit" class="mt-[2%]">
+
+    </form>
+</div>
+  
+</div>
+
+<%- include("./partials/footer")%>
