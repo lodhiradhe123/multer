@@ -39,9 +39,27 @@ router.get("/update/:id", async function(req,res){
   res.render("update",{userdata:user})
 })
 
-router.post("/updatedata/:id", async function(req,res){
-  const user =await User.findByIdAndUpdate(req.params.id,req.body)
-  res.redirect("/read")
+router.post("/updatedata/:id",uploads, async function(req,res){
+
+  try {
+   const updatedata ={...req.body};
+   if(req.file){
+    updatedata.img=req.file.filename;
+    fs.unlinkSync(path.join(__dirname,"../","public","images", req.body.oldimage ))
+   }
+
+
+   await User.findByIdAndUpdate(req.params.id, updatedata)
+   res.redirect("/read")
+
+} catch (error) {
+    res.send(error);
+  }
+
+  // const user =await User.findByIdAndUpdate(req.params.id,req.body)
+  // res.redirect("/read")
+
+
 })
 
 router.get("/delete/:id",async function(req,res){
